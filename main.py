@@ -2,8 +2,6 @@ TOKEN = " # BOT TOKEN # "
 WEBHOOK_URL = " # WEBHOOK URL # "
 
 
-
-
 try:
     import GPUtil
     from tabulate import tabulate
